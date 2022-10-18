@@ -1,3 +1,28 @@
 .container {
   max-width: 960px;
 }
+
+.icono{
+  position: absolute;
+  right: 10px;
+  top:12px;
+  opacity: 0;
+}
+.icono_error{
+  position: absolute;
+  right: 10px;
+  top:12px;
+  opacity: 1;
+  color:#ff0000;
+}
+form p{
+  font-size: 12px;
+  color:  #ff0000;
+  opacity: 0;
+}
+.text{
+  font-size: 12px;
+  color:  #ff0000;
+  opacity: 1;
+  margin-top: 8px;
+}
