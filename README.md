@@ -1,2 +1,7 @@
-# Grupal-6
-Grupal 6 - Alexander Porcal - Fabian Montossi - German Almeida - Daniel Gasaniga
+Obligatorio grupal  - JAP
+
+Integrantes:
+    -Alexander Porcal
+    -Fabian Montossi
+    -German Almeida
+    -Daniel Gasaniga
