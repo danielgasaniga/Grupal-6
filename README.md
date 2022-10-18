@@ -1,4 +1,4 @@
-Obligatorio grupal  - JAP
+Obligatorio grupal  - JAP.
 
 Integrantes:
     -Alexander Porcal
