@@ -39,20 +39,27 @@ function checkTyC(){
           event.stopPropagation()
         }
 
-      if ( (password.value.length > 5 && repeatPassword.length > 5) && (repeatPassword.value === password.value) ){
-        password.classList.remove("is-invalid");
-        password.classList.add('was-validated') 
+      if (repeatPassword.value === password.value){
+          
+          if (password.value.length > 5){
+            password.classList.remove("is-invalid");
+            password.classList.add('was-validated');
+          }
+          
+          if (repeatPassword.value.length > 5){
+            repeatPassword.classList.remove("is-invalid");
+            repeatPassword.classList.add('was-validated');
+          }
+          
+          password.classList.remove('was-validated');
+          password.classList.add('is-invalid');
+  
+          repeatPassword.classList.remove('was-validated');
+          repeatPassword.classList.add('is-invalid');
+        }
 
-        repeatPassword.classList.remove("is-invalid");
-        repeatPassword.classList.add('was-validated')
-
-      }
-      else {
-
-          password.classList.add('is-invalid')
-          repeatPassword.classList.add('is-invalid')
-      }
-      console.log("password.value.length > 5 && repeatPassword.length > 5", password.value.length > 5 && repeatPassword.length > 5, "\nrepeatPassword.value === password.value", repeatPassword.value === password.value);
+      
+      console.log("password.value.length > 5 && repeatPassword.value.length > 5", password.value.length > 5 && repeatPassword.value.length > 5, "\nrepeatPassword.value === password.value", repeatPassword.value === password.value);
 
         form.classList.add('was-validated')
       }, false)
