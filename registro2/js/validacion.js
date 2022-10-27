@@ -4,64 +4,60 @@ let lastName = document.getElementById("apellido");
 let email = document.getElementById("email");
 let terminos = document.getElementById("terminos");
 const registrarme = document.getElementById("registrarme");*/
-  
-const forms = document.querySelectorAll('.needs-validation');
+
+const forms = document.querySelectorAll(".needs-validation");
 let password = document.getElementById("password1");
 let repeatPassword = document.getElementById("password2");
 
 let realCheck = document.getElementById("terminos");
 let fakeCheck = document.getElementById("input-check");
+const button = document.getElementById("registrarme");
 
-function checkTyC(){
-  if (realCheck.checked === true && !fakeCheck.checked){
+function checkTyC() {
+  if (realCheck.checked === true && !fakeCheck.checked) {
     fakeCheck.checked = true;
-  } else{
+  } else {
     fakeCheck.checked = false;
   }
   console.log(fakeCheck.checked);
- /* was-validated
+  /* was-validated
   is-invalid*/
 }
 
-
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
-    'use strict'
+  "use strict";
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      (event) => {
+        if (!form.checkValidity() || !validate()) {
+          event.preventDefault();
+          event.stopPropagation();
         }
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
 
-      if (repeatPassword.value === password.value){
-          
-          if (password.value.length > 5){
-            password.classList.remove("is-invalid");
-            password.classList.add('was-validated');
-          }
-          
-          if (repeatPassword.value.length > 5){
-            repeatPassword.classList.remove("is-invalid");
-            repeatPassword.classList.add('was-validated');
-          }
-          
-          password.classList.remove('was-validated');
-          password.classList.add('is-invalid');
-  
-          repeatPassword.classList.remove('was-validated');
-          repeatPassword.classList.add('is-invalid');
-        }
+function validate() {
+  if (password.checkValidity() && password.value === repeatPassword.value) {
+    repeatPassword.setCustomValidity("");
+    return true;
+  } else {
+    repeatPassword.setCustomValidity("Contraseña mal");
+    return false;
+  }
+}
 
-      
-      console.log("password.value.length > 5 && repeatPassword.value.length > 5", password.value.length > 5 && repeatPassword.value.length > 5, "\nrepeatPassword.value === password.value", repeatPassword.value === password.value);
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
+let passwords = [password, repeatPassword];
+for (const p of passwords) {
+  p.addEventListener("input", validate())
+}
