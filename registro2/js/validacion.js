@@ -36,8 +36,10 @@ function checkTyC() {
 
 function validate() {
   if (password.checkValidity() && password.value === repeatPassword.value) {
+    repeatPassword.setCustomValidity("");
     return true;
   } else {
+    repeatPassword.setCustomValidity("Contraseña mal");
     return false;
   }
 }
