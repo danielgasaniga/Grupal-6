@@ -1,16 +1,9 @@
-/*let form = document.querySelector("form");
-let name = document.getElementById("nombre");
-let lastName = document.getElementById("apellido");
-let email = document.getElementById("email");
-let terminos = document.getElementById("terminos");
-const registrarme = document.getElementById("registrarme");*/
+const forms = document.getElementById("form");
+const password = document.getElementById("password1");
+const repeatPassword = document.getElementById("password2");
 
-const forms = document.querySelectorAll(".needs-validation");
-let password = document.getElementById("password1");
-let repeatPassword = document.getElementById("password2");
-
-let realCheck = document.getElementById("terminos");
-let fakeCheck = document.getElementById("input-check");
+const realCheck = document.getElementById("terminos");
+const fakeCheck = document.getElementById("input-check");
 const button = document.getElementById("registrarme");
 
 function checkTyC() {
@@ -28,31 +21,23 @@ function checkTyC() {
 (() => {
   "use strict";
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll(".needs-validation");
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach((form) => {
-    form.addEventListener(
-      "submit",
-      (event) => {
-        if (!form.checkValidity() || !validate()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
+  form.addEventListener(
+    "submit",
+    (event) => {
+      if (!form.checkValidity() || !validate()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    },
+    false
+  );
 })();
 
 function validate() {
   if (password.checkValidity() && password.value === repeatPassword.value) {
-    repeatPassword.setCustomValidity("");
     return true;
   } else {
-    repeatPassword.setCustomValidity("Contraseña mal");
     return false;
   }
 }
