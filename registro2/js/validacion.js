@@ -59,5 +59,5 @@ function validate() {
 
 let passwords = [password, repeatPassword];
 for (const p of passwords) {
-  p.addEventListener("input", validate())
+  p.addEventListener("input", validate)
 }
